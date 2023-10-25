@@ -1,4 +1,4 @@
-from findSimilar import similaritySearch
+from find_similar import similarity_search
 from llm_openai import get_openai_llm
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
@@ -16,7 +16,7 @@ if inputQuestion:
     while inputQuestion != "/exit":
         print("\n")
         inputQuestion = input("Question: ")
-        similarity_result = similaritySearch(inputQuestion)
+        similarity_result = similarity_search(inputQuestion)
         chain = LLMChain(llm=llm, prompt=PromptTemplate.from_template(prompt_template))
         ans = chain({'question': inputQuestion, 'information': similarity_result})
         print(ans["text"])
