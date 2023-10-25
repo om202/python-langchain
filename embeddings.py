@@ -1,12 +1,7 @@
-from langchain.embeddings import OpenAIEmbeddings
-from getKeys import OPENAI_KEY
+from llm_openai import get_openai_embeddings
 
-embedding_model = OpenAIEmbeddings(openai_api_key=OPENAI_KEY)
+_embedding_model = get_openai_embeddings()
 
-embeddings_multi_text = embedding_model.embed_documents(
-    ["I enjoy walking with my cute dog.", "I love eating ice cream."]
-)
-
-embeddings_text = embedding_model.embed_query("I enjoy walking with my cute dog.")
-
-print(embeddings_text)
+def get_embedding(query):
+    embedding_text = _embedding_model.embed_query(query)
+    return embedding_text
