@@ -14,7 +14,7 @@ def pdf_to_string(file_path):
     return whole_page_text
 
 def _save_text():
-    text = pdf_to_string('./sample_pdf/birgunj.pdf')
+    text = pdf_to_string('./sample_pdf/romeo.pdf')
     with open('./test.txt', 'w') as f:
         f.write(text)
 
